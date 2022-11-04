@@ -5,13 +5,6 @@ const Navbar = () => {
     return (
         <S.NavbarContainer>
           <h1>K NEWS</h1>
-          <S.NavbarLinkContainer>
-          <S.NavbarLink>
-          <Link to='/'>
-                Homepage 
-              </Link>
-          </S.NavbarLink>
-          </S.NavbarLinkContainer>
            <S.NavbarLinkContainer>
             <S.NavbarLink>
             <Link to='/Topics'>

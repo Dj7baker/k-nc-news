@@ -1,15 +1,16 @@
 import { useEffect } from "react";
-import fetchArticles from "../../utils/api";
+import { fetchArticles } from "../../utils/api";
 import { useState } from "react";
 import ArticleCard from "../articleCard/ArticleCard";
 import * as S from "./styledArticles";
 
-const ArticlesList = () => {
-    const [articles, setArticles] = useState([]);
-useEffect(() => {fetchArticles().then((articlesData) => {
-    setArticles(articlesData)
-})}, [])
-console.log('articles: ', articles)
+const ArticlesList = ({topic}) => {
+
+  const [articles, setArticles] = useState([]);
+  
+  useEffect(() => {fetchArticles(topic).then((articlesData) => {
+      setArticles(articlesData)
+  })}, [])
 
 return (
     <div>
