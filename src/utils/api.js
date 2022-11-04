@@ -1,11 +1,21 @@
-import axios from 'axios';
+import axios from "axios";
 const myApi = axios.create({
-    baseURL: 'https://dj-baker-news.herokuapp.com/api',
-  });
+  baseURL: "https://dj-baker-news.herokuapp.com/api",
+});
 
-  const fetchArticles = () => {
-    return myApi.get(`/articles`).then((res) => {
-        return res.data.articles;
-      });
-  }
-  export default fetchArticles
+export const fetchArticles = (topic) => {
+  return myApi.get(`/articles`, { params: { topic } }).then((res) => {
+    return res.data.articles;
+  });
+};
+
+export const fetchTopics = () => {
+  return myApi.get(`/topics`).then((res) => {
+    return res.data.topics;
+  });
+};
+export const fetchTopicBySlug = (topic_slug) => {
+  return myApi.get(`/topics/${topic_slug}`).then((res) => {
+    return res.data.topic;
+  });
+};
